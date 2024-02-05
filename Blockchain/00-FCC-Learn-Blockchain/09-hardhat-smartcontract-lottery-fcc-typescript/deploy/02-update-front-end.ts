@@ -1,4 +1,4 @@
-import { frontEndContractsFile } from "../helper-hardhat-config"
+import { frontEndContractsFile, frontEndAbiFile } from "../helper-hardhat-config"
 import fs from "fs"
 import { DeployFunction } from "hardhat-deploy/types"
 import { HardhatRuntimeEnvironment } from "hardhat/types"
@@ -19,7 +19,10 @@ const updateUI: DeployFunction = async function (hre: HardhatRuntimeEnvironment)
             contractAddresses[network.config.chainId!] = [fundMe.address]
         }
         fs.writeFileSync(frontEndContractsFile, JSON.stringify(contractAddresses))
-        // fs.writeFileSync(frontEndAbiFile, raffle.interface.format(ethers.utils.FormatTypes.json))
+        fs.writeFileSync(
+            frontEndAbiFile,
+            fundMe.interface.format(ethers.utils.FormatTypes.json) as string
+        )
         console.log("Front end written!")
     }
 }
