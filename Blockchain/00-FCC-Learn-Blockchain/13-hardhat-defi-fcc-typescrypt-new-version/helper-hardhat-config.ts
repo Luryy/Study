@@ -27,6 +27,7 @@ export const networkConfig: networkConfigInfo = {
         daiEthPriceFeed: "0xb4c4a493AB6356497713A78FFA6c60FB53517c63",
         // For this... we are just going to use LINK
         daiToken: "0x779877A7B0D9E8603169DdbD7836e478b4624789",
+        // daiToken: "0xaA8E23Fb1079EA71e0a56F48a2aA51851D8433D0",
     },
 }
 

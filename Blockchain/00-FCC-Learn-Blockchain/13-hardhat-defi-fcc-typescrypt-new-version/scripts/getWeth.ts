@@ -14,6 +14,8 @@ export async function getWeth() {
     )
     const txResponse = await iWeth.deposit({
         value: AMOUNT,
+        // gasLimit: 6000000,
+        // gasPrice: ethers.parseUnits("30", "gwei"),
     })
     await txResponse.wait(1)
     const wethBalance = await iWeth.balanceOf(deployer)

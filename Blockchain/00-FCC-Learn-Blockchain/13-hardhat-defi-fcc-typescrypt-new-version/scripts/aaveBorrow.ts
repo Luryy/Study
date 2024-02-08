@@ -25,7 +25,7 @@ async function main() {
     /* const daiPrice = */ await getDaiPrice() //* not necessary anymore since getBorrowUserData returns values in USD/base aave currency
     // const amountDaiToBorrow = availableBorrowsETH / daiPrice
 
-    const amountDaiToBorrowGwei = availableBorrowsETH * BigInt(9) // TODO to be more precisely -> should get this info from https://docs.aave.com/developers/periphery-contracts/uipooldataproviderv3#basecurrencyinfo
+    const amountDaiToBorrowGwei = availableBorrowsETH * BigInt(9) // availableBorrowsETH / BigInt(200) // TODO to be more precisely -> should get this info from https://docs.aave.com/developers/periphery-contracts/uipooldataproviderv3#basecurrencyinfo | depends of coin! dai->18 usdc->6
     const amountDaiToBorrowWei = ethers.parseUnits(amountDaiToBorrowGwei.toString(), "gwei")
     console.log(`You can borrow ${amountDaiToBorrowWei.toString()} DAI`)
 
